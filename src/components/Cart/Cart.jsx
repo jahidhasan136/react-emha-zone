@@ -3,17 +3,20 @@ import './Cart.css';
 
 const Cart = ({cart}) => {
     
-    let total = 0;
+    let totalPrice = 0;
+    let totalShipping = 0;
     for(const product of cart){
-        total = total + product.price;
+        totalPrice = totalPrice + product.price;
+        totalShipping = totalShipping + product.shipping;
     }
+    const tax = totalPrice * 30 / 100;
     return (
         <div className='cart'>
             <h2 style={{textAlign: 'center', marginBottom: '50px'}}>Order summary</h2>
             <p>Selected items: {cart.length}</p>
-            <p>Total Price: {total}</p>
-            <p>Total Shipping Charge: </p>
-            <p>Tax: </p>
+            <p>Total Price: ${totalPrice}</p>
+            <p>Total Shipping Charge: ${totalShipping}</p>
+            <p>Tax: ${tax}</p>
             <h4>Grand Total: </h4>
         </div>
     );
