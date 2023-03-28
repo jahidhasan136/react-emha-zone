@@ -10,6 +10,7 @@ const Cart = ({cart}) => {
         totalShipping = totalShipping + product.shipping;
     }
     const tax = totalPrice * 30 / 100;
+    const grandTotal = totalPrice + totalShipping + tax;
     return (
         <div className='cart'>
             <h2 style={{textAlign: 'center', marginBottom: '50px'}}>Order summary</h2>
@@ -17,7 +18,7 @@ const Cart = ({cart}) => {
             <p>Total Price: ${totalPrice}</p>
             <p>Total Shipping Charge: ${totalShipping}</p>
             <p>Tax: ${tax}</p>
-            <h4>Grand Total: </h4>
+            <h4>Grand Total: ${grandTotal}</h4>
         </div>
     );
 };
